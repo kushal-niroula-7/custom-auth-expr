@@ -46,3 +46,50 @@ run this command: dotnet dev-certs https --trust
 		Views / User / Single.cshtml
 	
 	-> Send data to view
+
+
+
+Using ViewModel
+-> Send view model to view: return View(vm);4
+-> Assing view model to view:
+	@model UserCreateVm
+-> use asp-for in input and label
+                if(!ModelState.IsValid)
+                {
+                    return View(vm);
+                }
+				
+<input type="text" name="Username"
+	value="user-15"
+/>
+
+input
+radio
+checkbox
+textbox
+button
+select
+
+## For Select
+1. Add GetSelectList method to your vm
+public SelectList UserTypeSelectItems()
+       => new SelectList(userTypes, nameof(UserType.Id),
+           nameof(UserType.Name),
+           SelectedUserType
+           );
+2. Add list items to your vm
+        public List<UserType> userTypes;
+3. Set data in your vm list in your action
+var userTypes = GetUserTypes();
+vm.userTypes = userTypes;
+
+4. Show select box in view
+<div class="form-group">
+    <label asp-for="SelectedUserType"></label>
+    <select asp-for="SelectedUserType"
+            asp-items="@Model.UserTypeSelectItems()"
+            required>
+        <option>--SELECT--</option>
+    </select>
+    <span class="text-danger" asp-validation-for="SelectedUserType"></span>
+</div>

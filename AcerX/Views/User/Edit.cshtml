@@ -6,11 +6,11 @@
         <form method="post">
             <div class="form-group">
                 <label asp-for="SelectedUserType"></label>
-                <select asp-for="SelectedUserType" 
-                    asp-items="@Model.UserTypeSelectItems()"
-                required>
-                <option>--SELECT--</option>
-            </select>
+                <select asp-for="SelectedUserType"
+                        asp-items="@Model.UserTypeSelectItems()"
+                        required>
+                    <option>--SELECT--</option>
+                </select>
                 <span class="text-danger" asp-validation-for="SelectedUserType"></span>
             </div>
             <div class="form-group">
