@@ -1,0 +1,35 @@
+﻿@model Product
+
+<table>
+    <thead>
+        <tr>
+            <th>
+                SN
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Id
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Price
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            var sn = 0;
+            <tr>
+                <td>@(sn++)</td>
+                <td>@Model.Name</td>
+                <td>@Model.Id</td>
+                <td>@Model.Description</td>
+                <td>@Model.Price</td>
+            </tr>
+        }
+    </tbody>
+</table>

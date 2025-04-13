@@ -1,0 +1,47 @@
+﻿@model List<Product>
+
+<table>
+    <thead>
+        <tr>
+            <th>
+                SN
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Id
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Actions
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            var sn = 0;
+            foreach(var product in Model)
+            {
+                <tr>
+                    <td>@(sn++)</td>
+                    <td>@product.Name</td>
+                    <td>@product.Id</td>
+                    <td>@product.Description</td>
+                    <td>@product.Price</td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@product.Id">
+                        Details
+                        </a>
+                    </td>
+                </tr>
+            }
+
+        }
+    </tbody>
+</table>
