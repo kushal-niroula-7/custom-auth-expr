@@ -93,3 +93,15 @@ vm.userTypes = userTypes;
     </select>
     <span class="text-danger" asp-validation-for="SelectedUserType"></span>
 </div>
+
+
+## Database
+
+1. Install package
+	- npgsql
+	- dapper
+2. Ability to create a connection
+	-> Static class
+3. Create a model class. Models/Product.cs
+	-> Column name and property name must match
+4. Create query
